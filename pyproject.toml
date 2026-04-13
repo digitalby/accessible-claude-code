@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "accessible-claude-code"
+version = "0.1.0"
+description = "PTY-based screen-reader wrapper for Claude Code and other Ink TUIs"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "digitalby", email = "yury@digitalby.me" }]
+requires-python = ">=3.10"
+keywords = ["accessibility", "screen-reader", "claude-code", "tui", "pty", "a11y"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Terminals",
+  "Topic :: Software Development",
+]
+dependencies = ["pyte>=0.8.2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+acc = "accessible_claude_code.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/digitalby/accessible-claude-code"
+Issues = "https://github.com/digitalby/accessible-claude-code/issues"
+Upstream = "https://github.com/anthropics/claude-code/issues/11002"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
